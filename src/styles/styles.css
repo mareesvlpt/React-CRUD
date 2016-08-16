@@ -1,0 +1,26 @@
+#app {
+   
+    min-width: 550px;
+    max-width: 850px;
+    margin: 0 auto;
+}  
+
+#app th {
+	color: #FF7043;
+}
+
+.table {
+	margin-top: 10px;
+}
+
+.table, tr, th, td, tbody, thead {
+	border: 1px solid black;
+}
+
+a.active {
+    color: orange;
+}
+
+nav {
+    padding-top: 20px;
+}
