@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 
 const SelectInput = ({name, label, onChange, defaultOption, value, error}) => {
-debugger;
+
 
 	return (
 		<div className="form-group">

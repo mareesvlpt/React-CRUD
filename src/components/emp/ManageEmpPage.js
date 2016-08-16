@@ -24,7 +24,7 @@ class ManageEmpPage extends React.Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-		debugger;
+		
 		
         if(this.props.emp.id != nextProps.emp.id) {
         	// Necessary to populate form when existing Emp is loaded fully
@@ -33,7 +33,7 @@ class ManageEmpPage extends React.Component {
 	}
 
 	updateEmpState(event) {
-		debugger;
+		
 
 		const field = event.target.name;
 		let emp = this.state.emp;
@@ -44,7 +44,7 @@ class ManageEmpPage extends React.Component {
 
 	saveEmp(event) {
 	 	event.preventDefault();
-	 	debugger;
+	 	
 	 	this.setState({saving: true});
 	 	this.props.actions.saveEmp(this.state.emp)
 	 	.then(() => this.redirect())

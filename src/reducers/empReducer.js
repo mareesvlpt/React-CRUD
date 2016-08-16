@@ -2,12 +2,11 @@ import * as types from '../actions/actionsTypes';
 import initialState from './initialState';
 
 export default function empReducer(state = initialState.emps, action) {
-	debugger;
-	switch(action.type) {
+		switch(action.type) {
 		case types.LOAD_EMPS_SUCCESS: 
 			// state.push(action.course);
 			// return state;
-			debugger;
+			
 			return action.emps;
 
 		case types.CREATE_EMP_SUCCESS:

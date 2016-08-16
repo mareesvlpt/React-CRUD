@@ -5,31 +5,31 @@ import {beginAjaxCall, ajaxCallError} from './ajaxStatusActions';
 // Action Creators
 export function loadEmpsSuccess(emps) {
 
-	debugger;
+	
 	return { type: types.LOAD_EMPS_SUCCESS, emps };
 
 }
 
 export function createEmpSuccess(emp) {
-	debugger;
+	
 
 	return { type: types.CREATE_EMP_SUCCESS, emp };
 }
 
 export function updateEmpSuccess(emp) {
-	debugger;
+	
 	
 	return { type: types.UPDATE_EMP_SUCCESS, emp };
 }
 
 export function deleteEmpSuccess(emps) {
-	debugger;
+	
 	
 	return { type: types.DELETE_EMP_SUCCESS, emps};
 }
 
 export function loadEmps() {
-	debugger;
+	
 
 	return function(dispatch) {
 		dispatch(beginAjaxCall());
@@ -44,15 +44,16 @@ export function loadEmps() {
 }
 
 export function saveEmp(emp) {
-	debugger;
+	
 
 	return function(dispatch, getState) {
 		dispatch(beginAjaxCall());
-		return empApi.saveEmp(emp).then(savedEmp => {
+		return fetch(`http://localhost:1337/employees/${emp.id}.json`).then(response => response.json())
+		.then(json => {
 
 			debugger;
-			emp.id ? dispatch(updateEmpSuccess(savedEmp)) :
-			dispatch(createEmpSuccess(savedEmp));
+			json.id ? dispatch(updateEmpSuccess(json)) :
+			dispatch(createEmpSuccess(json));
 		}).catch(error => {
 			dispatch(ajaxCallError(error));
 			throw(error);

@@ -15,14 +15,14 @@ class empsPage extends React.Component {
 	}
 
 	redirectToAddEmpPage() {
-		debugger;
+		
 		browserHistory.push('/emp');
 	}
 
 
 
 	render() {
-		debugger;
+		
 		const {emps, actions} = this.props;
 		return(
 			<div>

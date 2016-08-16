@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react';
 import {Link} from 'react-router';
 
 const EmpListRow = ({emp, deleteEmp}) => {
-	debugger;
+	
 	return (
 		<tr>
 		   <td>{emp.name}</td>

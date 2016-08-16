@@ -4,7 +4,6 @@ import * as empActions from '../../actions/empActions';
 
 const EmpList = ({emps, deleteEmp}) => {
 
-debugger;
 
 
 	return (
