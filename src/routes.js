@@ -7,7 +7,7 @@ import App from './components/App';
 import EmpsPage from './components/emp/EmpsPage';
 import ManageEmpPage from './components/emp/ManageEmpPage';
 
-debugger;
+
 export default (
 
 	<Route path = "/" component={App}>

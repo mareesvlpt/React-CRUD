@@ -85,7 +85,7 @@ ManageEmpPage.contextTypes = {
 };
 
 function getEmpById(emps, id) {
-	debugger;
+	
 	const emp = emps.filter(emp => emp.id == id)
 	if(emp) {
 		return emp[0]; //since filter reurns an Array only.
@@ -102,14 +102,14 @@ function mapStateToProps(state, ownProps) {
 	}
 
 
-	debugger;
+	
 	return {
 		emp: emp
 	};
 }
 
 function mapDispatchToProps(dispatch) {
-	debugger;
+	
 	return {
 		actions: bindActionCreators(empActions, dispatch)
 	};

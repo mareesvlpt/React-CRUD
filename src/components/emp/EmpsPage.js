@@ -45,14 +45,14 @@ empsPage.propTypes = {
 };
 
 function mapStateToProps(state, ownProps) {
-	debugger;
+	
 	return {
 		emps: state.emps
 	};
 }
 
 function mapDispatchToProps(dispatch) {
-	debugger;
+	
 	return {
 		actions: bindActionCreators(empActions, dispatch)
 	};

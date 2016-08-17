@@ -34,7 +34,7 @@ export function loadEmps() {
 	return function(dispatch) {
 		dispatch(beginAjaxCall());
 		return empApi.getAllEmps().then(emps => {
-			debugger;
+			
 			dispatch(loadEmpsSuccess(emps));
 		}).catch(error => {
 			throw(error);
@@ -46,24 +46,29 @@ export function loadEmps() {
 export function saveEmp(emp) {
 	
 
-	return function(dispatch, getState) {
+	return (dispatch, getState) => {
 		dispatch(beginAjaxCall());
-		return fetch(`http://localhost:1337/employees/${emp.id}.json`).then(response => response.json())
-		.then(json => {
-
-			debugger;
-			json.id ? dispatch(updateEmpSuccess(json)) :
-			dispatch(createEmpSuccess(json));
-		}).catch(error => {
-			dispatch(ajaxCallError(error));
-			throw(error);
+		return fetch('http://localhost:1337/employees', {
+            method: 'post',
+            body: JSON.stringify({ name: emp.name,
+    gender: emp.gender,
+    age: emp.age,
+    salary: emp.salary})
+      
+		}).then(response => {
+		  if(response.status >= 400) {throw new Error("bad response");}
+		 return response.json }).then(employees => {
+            alert(employees);
+			
+			// emp.id ? dispatch(updateEmpSuccess(json)) :
+			dispatch(createEmpSuccess(JSON.stringify(employees)));
 		});
-	};
 
+}
 }
 
 export function deleteEmp(empId) {
-	debugger;
+	
 
 	return function(dispatch, getState) {
 		dispatch(beginAjaxCall());
