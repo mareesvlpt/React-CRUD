@@ -4,7 +4,7 @@ import delay from './delay';
 // It uses setTimeout to simulate the delay of an AJAX call.
 // All calls return promises.
 const emps = [
-
+  
 ];
 
 function replaceAll(str, find, replace) {

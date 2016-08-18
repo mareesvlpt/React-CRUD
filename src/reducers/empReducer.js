@@ -16,11 +16,20 @@ export default function empReducer(state = initialState.emps, action) {
 		    ];
 
 		case types.UPDATE_EMP_SUCCESS:
-		    return [
+
+				debugger;
+				let result = [
 		    //copy of filtered result
+		
 		       ...state.filter(emp => emp.id !== action.emp.id),
 		       Object.assign({}, action.emp)
 		    ];
+		    		    return result;
+
+		    // 		    return [
+		    //    ...state,
+		    //    Object.assign({}, action.emp)
+		    // ];
 
 		    case types.DELETE_EMP_SUCCESS:
 		          return action.emps;

@@ -11,13 +11,10 @@ const SelectInput = ({name, label, onChange, defaultOption, value, error}) => {
 		         name={name}
 		         value={value}
 		         className="form-control"
-		         onChange={onChange} >
+		         onChange={onChange} required>
 		         <option value="">{defaultOption}</option>
 		         <option value="Male">Male</option>
 		         <option value="Female">Female</option>
-		 
-		         
-		          
 		      </select>
 		         {error && <div className="alert alert-danger">{error}</div>}
 		   </div>
@@ -31,6 +28,7 @@ SelectInput.propTypes = {
 	onChange: PropTypes.func.isRequired,
 	defaultOption: PropTypes.string,
 	value: PropTypes.string,
+	required: PropTypes.bool,
 	error: PropTypes.string,
 	options:PropTypes.arrayOf(PropTypes.object)
 };

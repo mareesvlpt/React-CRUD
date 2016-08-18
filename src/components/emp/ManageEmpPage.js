@@ -42,9 +42,56 @@ class ManageEmpPage extends React.Component {
 
 	}
 
+    	authorFormIsValid() {
+		var formIsValid = true;
+		this.state.errors = {}; //clear any previous error
+
+		if(this.state.emp.name.length <3) {
+             alert(this.state.emp.name);
+			this.state.errors.name = "Name must be at least 3 characters";
+			formIsValid = false;
+		}
+		if(this.state.emp.gender == "") {
+            alert(this.state.emp.gender.value);
+			this.state.errors.gender = "select gender";
+			formIsValid = false;
+		}
+
+		if(this.state.emp.age < 20 || this.state.emp.age > 50) {
+
+			this.state.errors.age = "Age should be within 20 to 50";
+			formIsValid = false;
+		}
+
+		if(this.state.emp.salary < 10000) {
+
+			this.state.errors.salary = "Salary should be higher than Rs.10000";
+			formIsValid = false;
+		}
+
+		this.setState({errors: this.state.errors});
+		return formIsValid;
+	}
 	saveEmp(event) {
 	 	event.preventDefault();
-	 	
+	 	// var emp = this.state.emp;
+	 	// if(emp.name.length >0 && emp.name.length <15) {
+	 	// 	alert("employee name between 1-15 characters");
+	 	// }
+	 	// else if(emp.gender == "Male" || emp.gender == "Female") {
+	 	// 	alert("Please Select Gender");
+	 	// }
+	 	// else if (20 < emp.age < 50) {
+	 	// 	alert("employee age should be between 20 to 50");
+	 	// }
+	 	// else if (emp.salary.length > 3) {
+	 	// 	alert("employee salary should be above 1000");
+	 	// }
+	 	// else {
+
+	 	if(!this.authorFormIsValid()) {
+			return;
+		}
 	 	this.setState({saving: true});
 	 	this.props.actions.saveEmp(this.state.emp)
 	 	.then(() => this.redirect())
@@ -52,6 +99,7 @@ class ManageEmpPage extends React.Component {
 	 		toastr.error(error);
 	 		this.setState({saving: false});
 	 	});
+
 	 	
     }
     redirect() {

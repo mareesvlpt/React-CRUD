@@ -1,6 +1,7 @@
 import React, {PropTypes} from 'react';
 import TextInput from '../common/TextInput';
 import SelectInput from '../common/SelectInput';
+import NumberInput from '../common/NumberInput';
 
 const EmpForm = ({emp, onSave, onChange, saving, errors}) => {
 	return (
@@ -12,7 +13,8 @@ const EmpForm = ({emp, onSave, onChange, saving, errors}) => {
 		     placeholder="Name"
 		     value={emp.name}
 		     onChange={onChange}
-		     error={errors.name} />
+		     error={errors.name} 
+		     pattern="[A-Za-z ]{1,15}"/>
 
 		   <SelectInput
 		     name="gender"
@@ -22,21 +24,23 @@ const EmpForm = ({emp, onSave, onChange, saving, errors}) => {
 		     onChange={onChange}
 		     error={errors.gender} />
 
-		   <TextInput
+		   <NumberInput
 		     name="age"
 		     label="Age"
 		     placeholder="Age"
 		     value={emp.age}
 		     onChange={onChange}
-		     error={errors.age} />
+		     error={errors.age} 
+		     pattern="[0-9 ]{2}"/>
 
-		   <TextInput
+		   <NumberInput
 		     name="salary"
 		     label="Salary"
 		     placeholder="Salary"
 		     value={emp.salary}
 		     onChange={onChange}
-		     error={errors.salary} />
+		     error={errors.salary} 
+		     pattern="[0-9 ]{4,6}"/>
 
 		   <input 
 		     type="submit"
